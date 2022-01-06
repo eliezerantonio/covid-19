@@ -1,7 +1,28 @@
+import 'package:covid_19_cases/api/covid_api.dart';
+import 'package:covid_19_cases/providers/cases_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  CovidApi.configureDio();
+  runApp(const ProviderApp());
+}
+
+class ProviderApp extends StatelessWidget {
+  const ProviderApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          lazy: false,
+          create: (_) => CasesProvider(),
+        ),
+      ],
+      child: const MyApp(),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
