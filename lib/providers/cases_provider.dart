@@ -4,7 +4,9 @@ import 'package:covid_19_cases/models/result.dart';
 import 'package:flutter/foundation.dart';
 
 class CasesProvider with ChangeNotifier {
-  CasesProvider() {}
+  CasesProvider() {
+    getCases();
+  }
 
   List<Result> cases = [];
 
@@ -12,7 +14,7 @@ class CasesProvider with ChangeNotifier {
     final response = await CovidApi.httpGet("/");
     final casesResponse = CasesResponse.fromJson(response);
 
-    cases = [...casesResponse.results];
+    cases = [...?casesResponse.results];
 
     print(cases);
 

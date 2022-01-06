@@ -1,84 +1,69 @@
-import 'dart:convert';
-
-import 'http/cases_response.dart';
-
 class Result {
-  Result({
-    required this.city,
-    required this.cityIbgeCode,
-    required this.confirmed,
-    required this.confirmedPer100KInhabitants,
-    required this.date,
-    required this.deathRate,
-    required this.deaths,
-    required this.estimatedPopulation,
-    required this.estimatedPopulation2019,
-    required this.isLast,
-    required this.orderForPlace,
-    required this.placeType,
-    required this.state,
-  });
+  String? city;
+  String? cityIbgeCode;
+  int? confirmed;
+  double? confirmedPer100kInhabitants;
+  String? date;
+  double? deathRate;
+  int? deaths;
+  int? estimatedPopulation;
+  int? estimatedPopulation2019;
+  bool? isLast;
+  int? orderForPlace;
+  String? placeType;
+  String? state;
 
-  String city;
-  String cityIbgeCode;
-  int confirmed;
-  double confirmedPer100KInhabitants;
-  DateTime date;
-  double deathRate;
-  int deaths;
-  int estimatedPopulation;
-  int estimatedPopulation2019;
-  bool isLast;
-  int orderForPlace;
-  PlaceType? placeType;
-  State? state;
+  Result(
+      {this.city,
+      this.cityIbgeCode,
+      this.confirmed,
+      this.confirmedPer100kInhabitants,
+      this.date,
+      this.deathRate,
+      this.deaths,
+      this.estimatedPopulation,
+      this.estimatedPopulation2019,
+      this.isLast,
+      this.orderForPlace,
+      this.placeType,
+      this.state});
 
-  factory Result.fromJson(String str) => Result.fromMap(json.decode(str));
+  Result.fromJson(Map<String, dynamic> json) {
+    city = json['city'];
+    cityIbgeCode = json['city_ibge_code'];
+    confirmed = json['confirmed'];
+    confirmedPer100kInhabitants = json['confirmed_per_100k_inhabitants'];
+    date = json['date'];
+    deathRate = json['death_rate'];
+    deaths = json['deaths'];
+    estimatedPopulation = json['estimated_population'];
+    estimatedPopulation2019 = json['estimated_population_2019'];
+    isLast = json['is_last'];
+    orderForPlace = json['order_for_place'];
+    placeType = json['place_type'];
+    state = json['state'];
+  }
 
-  String toJson() => json.encode(toMap());
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['city'] = city;
+    data['city_ibge_code'] = cityIbgeCode;
+    data['confirmed'] = confirmed;
+    data['confirmed_per_100k_inhabitants'] = confirmedPer100kInhabitants;
+    data['date'] = date;
+    data['death_rate'] = deathRate;
+    data['deaths'] = deaths;
+    data['estimated_population'] = estimatedPopulation;
+    data['estimated_population_2019'] = estimatedPopulation2019;
+    data['is_last'] = isLast;
+    data['order_for_place'] = orderForPlace;
+    data['place_type'] = placeType;
+    data['state'] = state;
+    return data;
+  }
 
-  factory Result.fromMap(Map<String, dynamic> json) => Result(
-        city: json["city"] == null ? null : json["city"],
-        cityIbgeCode:
-            json["city_ibge_code"] == null ? null : json["city_ibge_code"],
-        confirmed: json["confirmed"],
-        confirmedPer100KInhabitants:
-            json["confirmed_per_100k_inhabitants"] == null
-                ? null
-                : json["confirmed_per_100k_inhabitants"].toDouble(),
-        date: DateTime.parse(json["date"]),
-        deathRate: json["death_rate"].toDouble(),
-        deaths: json["deaths"],
-        estimatedPopulation: json["estimated_population"] == null
-            ? null
-            : json["estimated_population"],
-        estimatedPopulation2019: json["estimated_population_2019"] == null
-            ? null
-            : json["estimated_population_2019"],
-        isLast: json["is_last"],
-        orderForPlace: json["order_for_place"],
-        placeType: placeTypeValues.map[json["place_type"]],
-        state: stateValues.map[json["state"]],
-      );
-
-  Map<String, dynamic> toMap() => {
-        "city": city == null ? null : city,
-        "city_ibge_code": cityIbgeCode == null ? null : cityIbgeCode,
-        "confirmed": confirmed,
-        "confirmed_per_100k_inhabitants": confirmedPer100KInhabitants == null
-            ? null
-            : confirmedPer100KInhabitants,
-        "date":
-            "${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}",
-        "death_rate": deathRate,
-        "deaths": deaths,
-        "estimated_population":
-            estimatedPopulation == null ? null : estimatedPopulation,
-        "estimated_population_2019":
-            estimatedPopulation2019 == null ? null : estimatedPopulation2019,
-        "is_last": isLast,
-        "order_for_place": orderForPlace,
-        "place_type": placeTypeValues.reverse[placeType],
-        "state": stateValues.reverse[state],
-      };
+  @override
+  String toString() {
+    return 'Result{city: $city, cityIbgeCode: $cityIbgeCode, confirmed: $confirmed, confirmedPer100kInhabitants: $confirmedPer100kInhabitants, date: $date, deathRate: $deathRate, deaths: $deaths, estimatedPopulation: $estimatedPopulation, estimatedPopulation2019: $estimatedPopulation2019, isLast: $isLast, orderForPlace: $orderForPlace, placeType: $placeType, state: $state}';
+  }
 }
