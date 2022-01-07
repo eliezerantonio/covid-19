@@ -11,7 +11,7 @@ import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class UpdatesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);

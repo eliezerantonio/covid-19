@@ -28,25 +28,37 @@ class CaseItem extends StatelessWidget {
           );
         },
         child: Container(
-          padding: EdgeInsets.all(responsive.wp(3)),
+          padding: EdgeInsets.all(responsive.wp(2)),
           decoration: BoxDecoration(
               color: Colors.grey[300], borderRadius: BorderRadius.circular(5)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(result.state!),
+              Text(
+                result.state!,
+                style: TextStyle(fontSize: responsive.dp(1.5)),
+              ),
               SizedBox(
                 width: responsive.wp(10),
               ),
-              Text(result.confirmed!.toString()),
+              Text(
+                result.confirmed!.toString(),
+                style: TextStyle(fontSize: responsive.dp(1.5)),
+              ),
               SizedBox(
                 width: responsive.wp(7),
               ),
-              Text(result.deaths.toString()),
+              Text(
+                result.deaths.toString(),
+                style: TextStyle(fontSize: responsive.dp(1.5)),
+              ),
               SizedBox(
                 width: responsive.wp(7),
               ),
-              Text(result.deaths.toString()),
+              Text(
+                result.deaths.toString(),
+                style: TextStyle(fontSize: responsive.dp(1.5)),
+              ),
             ],
           ),
         ),
