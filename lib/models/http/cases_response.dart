@@ -3,7 +3,6 @@
 //     final casesResponse = casesResponseFromMap(jsonString);
 
 import 'package:covid_19_cases/models/result.dart';
-import 'dart:convert';
 
 class CasesResponse {
   int? count;
@@ -36,4 +35,3 @@ class CasesResponse {
     return data;
   }
 }
-
