@@ -13,7 +13,7 @@ class CustomGraphic extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(top: 10),
         alignment: Alignment.center,
-        width: responsive.wp(50),
+        width: responsive.wp(75),
         height: 300,
         child: Chart(
           data: datasGrap,
@@ -48,6 +48,5 @@ class CustomGraphic extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

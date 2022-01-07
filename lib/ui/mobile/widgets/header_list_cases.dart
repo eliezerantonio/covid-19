@@ -14,19 +14,65 @@ class HeaderListCases extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text("Estado"),
+        Column(
+          children: [
+            Container(
+              height: 20,
+              width: 20,
+              decoration: BoxDecoration(
+                  color: Colors.orange.withOpacity(0.6),
+                  shape: BoxShape.circle),
+              child: const Icon(Icons.remove, size: 15, color: Colors.orange),
+            ),
+            const Text("Estado"),
+          ],
+        ),
         SizedBox(
           width: responsive.wp(10),
         ),
-        const Text("Confirmados"),
+        Column(
+          children: [
+            Container(
+              height: 20,
+              width: 20,
+              decoration: BoxDecoration(
+                  color: Colors.blue[900]!.withOpacity(0.6),
+                  shape: BoxShape.circle),
+              child: Icon(Icons.remove, size: 15, color: Colors.blue[900]!),
+            ),
+            const Text("Confirmados"),
+          ],
+        ),
         SizedBox(
           width: responsive.wp(7),
         ),
-        const Text("Recuperados"),
+        Column(
+          children: [
+            Container(
+              height: 20,
+              width: 20,
+              decoration: BoxDecoration(
+                  color: Colors.green.withOpacity(0.6), shape: BoxShape.circle),
+              child: const Icon(Icons.remove, size: 15, color: Colors.green),
+            ),
+            const Text("Recuperados"),
+          ],
+        ),
         SizedBox(
           width: responsive.wp(7),
         ),
-        const Text("Mortos"),
+        Column(
+          children: [
+            Container(
+              height: 20,
+              width: 20,
+              decoration: BoxDecoration(
+                  color: Colors.red.withOpacity(0.6), shape: BoxShape.circle),
+              child: const Icon(Icons.remove, size: 15, color: Colors.red),
+            ),
+            const Text("Mortos"),
+          ],
+        ),
       ],
     );
   }

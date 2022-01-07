@@ -16,6 +16,7 @@ class CasesItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         NumberCase(
           responsive: responsive,

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:covid_19_cases/utils/my_colors.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ class GeralCasesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
 
-    Column newMethod(String type, int quantity) {
+    Widget newMethod(String type, int quantity) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

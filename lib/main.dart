@@ -1,10 +1,11 @@
 import 'package:covid_19_cases/api/covid_api.dart';
 import 'package:covid_19_cases/providers/cases_provider.dart';
-import 'package:covid_19_cases/ui/mobile/screens/updates_screen.dart';
+import 'package:covid_19_cases/ui/mobile/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'ui/mobile/screens/splash_screen.dart';
+
 
 void main() {
   CovidApi.configureDio();
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: UpdatesScreen(),
+      home: SplashScreen(),
     );
   }
 }

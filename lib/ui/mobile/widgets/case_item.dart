@@ -16,51 +16,48 @@ class CaseItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FadeInUp(
-      duration: const Duration(milliseconds: 1000),
-      child: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => CaseScreen(result: result),
-            ),
-          );
-        },
-        child: Container(
-          padding: EdgeInsets.all(responsive.wp(2)),
-          decoration: BoxDecoration(
-              color: Colors.grey[300], borderRadius: BorderRadius.circular(5)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                result.state!,
-                style: TextStyle(fontSize: responsive.dp(1.5)),
-              ),
-              SizedBox(
-                width: responsive.wp(10),
-              ),
-              Text(
-                result.confirmed!.toString(),
-                style: TextStyle(fontSize: responsive.dp(1.5)),
-              ),
-              SizedBox(
-                width: responsive.wp(7),
-              ),
-              Text(
-                result.deaths.toString(),
-                style: TextStyle(fontSize: responsive.dp(1.5)),
-              ),
-              SizedBox(
-                width: responsive.wp(7),
-              ),
-              Text(
-                result.deaths.toString(),
-                style: TextStyle(fontSize: responsive.dp(1.5)),
-              ),
-            ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => CaseScreen(result: result),
           ),
+        );
+      },
+      child: Container(
+        padding: EdgeInsets.all(responsive.wp(2)),
+        decoration: BoxDecoration(
+            color: Colors.grey[300], borderRadius: BorderRadius.circular(5)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              result.state!,
+              style: TextStyle(fontSize: responsive.dp(1.5)),
+            ),
+            SizedBox(
+              width: responsive.wp(10),
+            ),
+            Text(
+              result.confirmed!.toString(),
+              style: TextStyle(fontSize: responsive.dp(1.5)),
+            ),
+            SizedBox(
+              width: responsive.wp(7),
+            ),
+            Text(
+              result.deaths.toString(),
+              style: TextStyle(fontSize: responsive.dp(1.5)),
+            ),
+            SizedBox(
+              width: responsive.wp(7),
+            ),
+            Text(
+              result.deaths.toString(),
+              style: TextStyle(fontSize: responsive.dp(1.5)),
+            ),
+          ],
         ),
       ),
     );

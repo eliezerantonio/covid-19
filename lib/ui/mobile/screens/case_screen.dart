@@ -1,5 +1,6 @@
 import 'package:covid_19_cases/models/result.dart';
 import 'package:covid_19_cases/ui/mobile/widgets/cases_item.dart';
+import 'package:covid_19_cases/ui/mobile/widgets/header_updates.dart';
 import 'package:covid_19_cases/ui/mobile/widgets/number_cases.dart';
 import 'package:covid_19_cases/ui/shared/custom_graphic.dart';
 import 'package:covid_19_cases/utils/my_colors.dart';
@@ -67,30 +68,19 @@ class CaseScreen extends StatelessWidget {
                 SizedBox(
                   height: responsive.dp(2),
                 ),
-                Container(
-                  height: responsive.hp(10),
-                  width: responsive.wp(100),
-                  alignment: Alignment.center,
-                  child: Text("Covid-19 Ultimas Atualizacoes",
-                      style: TextStyle(
-                          color: Colors.white, fontSize: responsive.dp(2.4))),
-                  decoration: BoxDecoration(
-                    color: Color(MyColors.primaryColor),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
+                HeaderUpdates(responsive: responsive),
                 SizedBox(
                   height: responsive.dp(2),
                 ),
                 Text(
-                  "Populacao estimada: ${result.estimatedPopulation}",
+                  "População estimada: ${result.estimatedPopulation}",
                   style: TextStyle(
                     fontSize: responsive.dp(2),
                   ),
                 ),
                 SizedBox(height: responsive.dp(2)),
                 Text(
-                  "Populacao estimada 2019: ${result.estimatedPopulation2019}",
+                  "População estimada 2019: ${result.estimatedPopulation2019}",
                   style:
                       TextStyle(fontSize: responsive.dp(2), color: Colors.grey),
                 ),
