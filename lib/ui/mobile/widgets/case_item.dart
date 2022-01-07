@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:covid_19_cases/models/result.dart';
@@ -14,27 +15,30 @@ class CaseItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(responsive.wp(3)),
-      decoration: BoxDecoration(
-          color: Colors.grey[300], borderRadius: BorderRadius.circular(5)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-           Text(result.state),
-          SizedBox(
-            width: responsive.wp(10),
-          ),
-          const Text("Confirmados"),
-          SizedBox(
-            width: responsive.wp(7),
-          ),
-          const Text("Mortos"),
-          SizedBox(
-            width: responsive.wp(7),
-          ),
-          const Text("Estado"),
-        ],
+    return FadeInUp(
+      duration: const Duration(milliseconds: 1000),
+      child: Container(
+        padding: EdgeInsets.all(responsive.wp(3)),
+        decoration: BoxDecoration(
+            color: Colors.grey[300], borderRadius: BorderRadius.circular(5)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(result.state!),
+            SizedBox(
+              width: responsive.wp(10),
+            ),
+            Text(result.confirmed!.toString()),
+            SizedBox(
+              width: responsive.wp(7),
+            ),
+            Text(result.deaths.toString()),
+            SizedBox(
+              width: responsive.wp(7),
+            ),
+            Text(result.deaths.toString()),
+          ],
+        ),
       ),
     );
   }

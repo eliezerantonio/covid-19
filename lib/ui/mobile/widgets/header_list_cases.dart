@@ -22,11 +22,11 @@ class HeaderListCases extends StatelessWidget {
         SizedBox(
           width: responsive.wp(7),
         ),
-        const Text("Mortos"),
+        const Text("Recuperados"),
         SizedBox(
           width: responsive.wp(7),
         ),
-        const Text("Estado"),
+        const Text("Mortos"),
       ],
     );
   }
