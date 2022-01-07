@@ -16,8 +16,6 @@ class CasesProvider with ChangeNotifier {
 
     cases = [...?casesResponse.results];
 
-    print(cases);
-
     notifyListeners();
   }
 }
