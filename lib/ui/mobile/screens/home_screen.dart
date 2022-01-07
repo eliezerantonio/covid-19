@@ -3,6 +3,7 @@
 import 'package:covid_19_cases/providers/cases_provider.dart';
 import 'package:covid_19_cases/ui/mobile/widgets/case_item.dart';
 import 'package:covid_19_cases/ui/mobile/widgets/drown_states.dart';
+import 'package:covid_19_cases/ui/mobile/widgets/filter_case.dart';
 import 'package:covid_19_cases/ui/mobile/widgets/geral_cases_widget.dart';
 import 'package:covid_19_cases/ui/mobile/widgets/header_list_cases.dart';
 import 'package:covid_19_cases/utils/my_colors.dart';
@@ -33,25 +34,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Row(
-              children: [
-                Container(
-                  width: 100,
-                  height: responsive.hp(7),
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(7),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.red),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: const Text("Brazil", style: TextStyle(fontSize: 20)),
-                ),
-                const SizedBox(
-                  width: 7,
-                ),
-                DrownStates()
-              ],
-            ),
+            FilterCase(responsive: responsive),
             const SizedBox(
               height: 10,
             ),

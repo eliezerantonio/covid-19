@@ -16,7 +16,7 @@ class GeralCasesWidget extends StatelessWidget {
           Text(
             type,
             style: const TextStyle(
-              color: Colors.white60,
+              color: Colors.white,
             ),
           ),
           SizedBox(
@@ -25,9 +25,10 @@ class GeralCasesWidget extends StatelessWidget {
           Text(
             quantity.toString(),
             textAlign: TextAlign.start,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w500,
+              fontSize: responsive.dp(2),
             ),
           ),
         ],
