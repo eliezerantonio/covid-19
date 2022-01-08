@@ -7,18 +7,17 @@ import 'package:covid_19_cases/ui/shared/widgets/header_updates.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HomeView extends StatefulWidget {
-  HomeView(this.cases);
-  final List<Result> cases;
+class WebHomeScreen extends StatefulWidget {
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<WebHomeScreen> createState() => _WebHomeScreenState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _WebHomeScreenState extends State<WebHomeScreen> {
   int _rowsPerPage = PaginatedDataTable.defaultRowsPerPage;
 
   @override
   Widget build(BuildContext context) {
+    final cases = context.watch<CasesProvider>().cases;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: ListView(
@@ -68,7 +67,7 @@ class _HomeViewState extends State<HomeView> {
                 _rowsPerPage = value!;
               });
             },
-            source: CasesDTS(widget.cases, context),
+            source: CasesDTS(cases, context),
             header: FittedBox(
               fit: BoxFit.contain,
               child: Padding(

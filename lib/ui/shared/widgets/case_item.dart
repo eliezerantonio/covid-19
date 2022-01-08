@@ -7,15 +7,14 @@ import 'package:covid_19_cases/models/result.dart';
 class CaseItem extends StatelessWidget {
   const CaseItem({
     Key? key,
-    required this.responsive,
     required this.result,
   }) : super(key: key);
 
-  final Responsive responsive;
   final Result result;
 
   @override
   Widget build(BuildContext context) {
+    final responsive = Responsive.of(context);
     return GestureDetector(
       onTap: () {
         Navigator.push(

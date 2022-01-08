@@ -3,15 +3,9 @@ import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
 class HeaderListCases extends StatelessWidget {
-  const HeaderListCases({
-    Key? key,
-    required this.responsive,
-  }) : super(key: key);
-
-  final Responsive responsive;
-
   @override
   Widget build(BuildContext context) {
+    final responsive = Responsive.of(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -36,7 +30,7 @@ class HeaderListCases extends StatelessWidget {
         SizedBox(
           width: responsive.wp(7),
         ),
-         const HeaderCase(
+        const HeaderCase(
           color: Colors.red,
           text: 'Mortos',
         ),
