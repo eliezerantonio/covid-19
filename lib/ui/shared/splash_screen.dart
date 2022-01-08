@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
     return SplashScreenView(
       navigateRoute: HomeScreen(),
       duration: 2000,
-      imageSize: 500,
+      imageSize: 400,
       imageSrc: "assets/medicos.png",
       backgroundColor: Colors.white,
     );

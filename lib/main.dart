@@ -4,7 +4,7 @@ import 'package:covid_19_cases/ui/mobile/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'ui/mobile/screens/splash_screen.dart';
+import 'ui/shared/splash_screen.dart';
 
 
 void main() {

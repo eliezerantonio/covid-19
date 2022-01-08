@@ -3,15 +3,9 @@ import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
 class HeaderUpdates extends StatelessWidget {
-  const HeaderUpdates({
-    Key? key,
-    required this.responsive,
-  }) : super(key: key);
-
-  final Responsive responsive;
-
   @override
   Widget build(BuildContext context) {
+    final  responsive = Responsive.of(context);
     return Container(
       height: responsive.hp(10),
       width: responsive.wp(100),

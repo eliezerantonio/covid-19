@@ -1,6 +1,6 @@
 import 'package:covid_19_cases/models/result.dart';
 import 'package:covid_19_cases/ui/mobile/widgets/cases_item.dart';
-import 'package:covid_19_cases/ui/mobile/widgets/header_updates.dart';
+import 'package:covid_19_cases/ui/shared/widgets/header_updates.dart';
 import 'package:covid_19_cases/ui/mobile/widgets/number_cases.dart';
 import 'package:covid_19_cases/ui/shared/custom_graphic.dart';
 import 'package:covid_19_cases/utils/my_colors.dart';
@@ -68,7 +68,7 @@ class CaseScreen extends StatelessWidget {
                 SizedBox(
                   height: responsive.dp(2),
                 ),
-                HeaderUpdates(responsive: responsive),
+                HeaderUpdates(),
                 SizedBox(
                   height: responsive.dp(2),
                 ),
