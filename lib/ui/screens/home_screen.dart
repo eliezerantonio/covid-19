@@ -1,8 +1,9 @@
-import 'package:covid_19_cases/ui/mobile/screens/mobile_home_screen.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
+import 'mobile/screens/mobile_home_screen.dart';
 import 'web/web_home_screen.dart';
+
 
 class HomeScreen extends StatefulWidget {
   @override

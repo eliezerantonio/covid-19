@@ -1,4 +1,4 @@
-import 'package:covid_19_cases/ui/mobile/widgets/header_case.dart';
+import 'package:covid_19_cases/ui/screens/mobile/widgets/header_case.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
 

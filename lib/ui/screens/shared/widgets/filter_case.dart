@@ -1,5 +1,5 @@
 import 'package:covid_19_cases/providers/cases_provider.dart';
-import 'package:covid_19_cases/ui/shared/widgets/drown_states.dart';
+import 'package:covid_19_cases/ui/screens/shared/widgets/drown_states.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';

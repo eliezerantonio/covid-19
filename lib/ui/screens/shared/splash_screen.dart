@@ -1,4 +1,4 @@
-import 'package:covid_19_cases/ui/home_screen.dart';
+import 'package:covid_19_cases/ui/screens/home_screen.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';

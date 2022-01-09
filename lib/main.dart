@@ -1,10 +1,11 @@
 import 'package:covid_19_cases/api/covid_api.dart';
 import 'package:covid_19_cases/providers/cases_provider.dart';
-import 'package:covid_19_cases/ui/home_screen.dart';
+import 'package:covid_19_cases/ui/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'ui/shared/splash_screen.dart';
+import 'ui/screens/shared/splash_screen.dart';
+
 
 void main() {
   CovidApi.configureDio();

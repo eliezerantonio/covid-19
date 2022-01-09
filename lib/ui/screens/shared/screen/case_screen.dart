@@ -1,10 +1,11 @@
 import 'package:covid_19_cases/models/result.dart';
-import 'package:covid_19_cases/ui/shared/widgets/cases_item.dart';
+import 'package:covid_19_cases/ui/screens/shared/widgets/cases_item.dart';
+import 'package:covid_19_cases/ui/screens/shared/widgets/header_updates.dart';
 
-import 'package:covid_19_cases/ui/shared/widgets/header_updates.dart';
-import 'package:covid_19_cases/ui/shared/custom_graphic.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
+
+import '../custom_graphic.dart';
 
 class CaseScreen extends StatelessWidget {
   CaseScreen({Key? key, required this.result}) : super(key: key);
