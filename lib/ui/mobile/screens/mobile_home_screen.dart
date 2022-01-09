@@ -5,6 +5,7 @@ import 'package:covid_19_cases/ui/mobile/widgets/case_item.dart';
 import 'package:covid_19_cases/ui/shared/widgets/covid_text.dart';
 import 'package:covid_19_cases/ui/shared/widgets/filter_case.dart';
 import 'package:covid_19_cases/ui/shared/widgets/header_updates.dart';
+import 'package:covid_19_cases/utils/my_colors.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,13 +15,16 @@ class MobileHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     final cases = context.watch<CasesProvider>().cases;
     return Scaffold(
       body: ListView(
         physics: const BouncingScrollPhysics(),
         controller: _scrollController,
         children: [
+          if (cases.length == 0)
+            LinearProgressIndicator(
+              color: Color(MyColors.primaryColor),
+            ),
           CovidText(),
           const SizedBox(
             height: 30,
@@ -41,9 +45,7 @@ class MobileHomeScreen extends StatelessWidget {
             itemCount: cases.length,
             itemBuilder: (context, index) => Column(
               children: [
-                FadeInLeft(
-                    child:
-                        CaseItem( result: cases[index])),
+                FadeInLeft(child: CaseItem(result: cases[index])),
                 const SizedBox(height: 10),
               ],
             ),

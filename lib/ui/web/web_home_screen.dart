@@ -5,6 +5,7 @@ import 'package:covid_19_cases/ui/shared/widgets/covid_text.dart';
 import 'package:covid_19_cases/ui/mobile/widgets/header_case.dart';
 import 'package:covid_19_cases/ui/shared/widgets/filter_case.dart';
 import 'package:covid_19_cases/ui/shared/widgets/header_updates.dart';
+import 'package:covid_19_cases/utils/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,6 +25,10 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
       child: ListView(
         physics: const ClampingScrollPhysics(),
         children: [
+          if (cases.length == 0)
+            LinearProgressIndicator(
+              color: Color(MyColors.primaryColor),
+            ),
           CovidText(),
           const SizedBox(
             height: 30,
@@ -68,9 +73,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                   text: 'Mortos',
                 ),
               ),
-              const DataColumn(
-                label: Text("Ver")
-              ),
+              const DataColumn(label: Text("Ver")),
             ],
             onRowsPerPageChanged: (value) {
               setState(() {
@@ -86,6 +89,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                 child: HeaderUpdates(),
               ),
             ),
+            showFirstLastButtons: true,
             rowsPerPage: _rowsPerPage,
           ),
         ],

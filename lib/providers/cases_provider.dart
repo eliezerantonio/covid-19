@@ -10,24 +10,27 @@ class CasesProvider with ChangeNotifier {
 
   List<Result> cases = [];
 
+  String nextPage = "";
+
   Future<void> getCases() async {
+    int actualPage = 1;
+
     final response = await CovidApi.httpGet("/");
     final casesResponse = CasesResponse.fromJson(response);
 
     cases = [...?casesResponse.results];
-
+    actualPage++;
+    nextPage = '?page=$actualPage';
+    print(nextPage);
     notifyListeners();
   }
 
-  Future<void> search({String? state, String? date}) async {
-    print(date);
-    // final response = await CovidApi.httpGet("/?search&date=$date");
+  Future<void> search({String? state = "", String? date = ""}) async {
+    cases.clear();
     final response = await CovidApi.httpGet("/?search&date=$date&state=$state");
     final casesResponse = CasesResponse.fromJson(response);
 
     cases = [...?casesResponse.results];
-
-    print(cases);
 
     notifyListeners();
   }
