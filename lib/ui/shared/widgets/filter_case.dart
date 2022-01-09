@@ -23,7 +23,7 @@ class FilterCase extends StatelessWidget {
                 border: Border.all(color: Colors.red),
                 borderRadius: BorderRadius.circular(5),
               ),
-              child: const Text("Brazil", style: TextStyle(fontSize: 20)),
+              child: const Text("Brasil", style: TextStyle(fontSize: 20)),
             ),
             const SizedBox(
               width: 7,

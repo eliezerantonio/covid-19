@@ -19,14 +19,14 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final cases = context.watch<CasesProvider>().cases;
+    final casesProvider = context.watch<CasesProvider>();
    
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: ListView(
         physics: const ClampingScrollPhysics(),
         children: [
-          if (cases.length == 0)
+          if (casesProvider.loading)
             LinearProgressIndicator(
               color: Color(MyColors.primaryColor),
             ),
@@ -83,7 +83,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                 _rowsPerPage = value!;
               });
             },
-            source: CasesDTS(cases, context),
+            source: CasesDTS(casesProvider.cases, context),
             header: FittedBox(
               fit: BoxFit.contain,
               child: Padding(

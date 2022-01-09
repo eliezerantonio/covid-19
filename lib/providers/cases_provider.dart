@@ -83,6 +83,7 @@ class CasesProvider with ChangeNotifier {
   bool canPreviusPage(int actualPage) {
     if (actualPage > 2) {
       previusPage = true;
+      nextPage=true;
       return true;
     } else {
       previusPage = false;
