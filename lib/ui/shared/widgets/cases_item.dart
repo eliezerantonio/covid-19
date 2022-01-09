@@ -15,6 +15,12 @@ class CasesItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return Container(child: (size.width > 354) ? web() : mobile());
+  }
+
+//big screen
+  Row web() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -30,7 +36,7 @@ class CasesItem extends StatelessWidget {
           responsive: responsive,
           number: result.estimatedPopulation!,
           iconData: Icons.favorite,
-          text: "Populacao",
+          text: "População",
           color: Colors.green,
         ),
         SizedBox(width: responsive.dp(2)),
@@ -42,6 +48,40 @@ class CasesItem extends StatelessWidget {
           color: Colors.red,
         ),
       ],
+    );
+  }
+
+//small screen
+  Widget mobile() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          NumberCase(
+            responsive: responsive,
+            number: result.confirmed!,
+            iconData: Icons.add,
+            text: "Confirmados",
+            color: Colors.orange,
+          ),
+          SizedBox(height: responsive.dp(2)),
+          NumberCase(
+            responsive: responsive,
+            number: result.estimatedPopulation!,
+            iconData: Icons.favorite,
+            text: "Populacao",
+            color: Colors.green,
+          ),
+          SizedBox(height: responsive.dp(2)),
+          NumberCase(
+            responsive: responsive,
+            number: result.deaths!,
+            iconData: Icons.close,
+            text: "Mortos",
+            color: Colors.red,
+          ),
+        ],
+      ),
     );
   }
 }

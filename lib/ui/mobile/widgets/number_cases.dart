@@ -37,17 +37,26 @@ class NumberCase extends StatelessWidget {
             child: Icon(iconData, color: color, size: 20),
           ),
           SizedBox(height: responsive.hp(1)),
-          Text(
-            number.toString(),
-            style: TextStyle(
-                color: color, fontSize: 19, fontWeight: FontWeight.bold),
+          FittedBox(
+            fit: BoxFit.contain,
+            child: Text(
+              number.toString(),
+              style: TextStyle(
+                color: color,
+                fontSize: 19,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
           SizedBox(height: responsive.hp(1)),
-          Text(
-            text,
-            style: const TextStyle(
-              color: Colors.grey,
-              fontSize: 12,
+          FittedBox(
+            fit: BoxFit.contain,
+            child: Text(
+              text,
+              style: const TextStyle(
+                color: Colors.grey,
+                fontSize: 12,
+              ),
             ),
           ),
         ],

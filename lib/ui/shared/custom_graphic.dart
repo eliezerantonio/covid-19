@@ -2,6 +2,7 @@ import 'package:covid_19_cases/utils/my_colors.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:graphic/graphic.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class CustomGraphic extends StatelessWidget {
   CustomGraphic(this.datasGrap);
@@ -13,7 +14,7 @@ class CustomGraphic extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(top: 10),
         alignment: Alignment.center,
-        width: responsive.wp(75),
+        width: responsive.wp(kIsWeb ? 60 : 76),
         height: 300,
         child: Chart(
           data: datasGrap,

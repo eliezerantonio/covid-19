@@ -1,5 +1,6 @@
 import 'package:covid_19_cases/models/result.dart';
 import 'package:covid_19_cases/ui/shared/widgets/cases_item.dart';
+
 import 'package:covid_19_cases/ui/shared/widgets/header_updates.dart';
 import 'package:covid_19_cases/ui/shared/custom_graphic.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
@@ -23,7 +24,7 @@ class CaseScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: EdgeInsets.symmetric(horizontal: responsive.dp(2)),
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(

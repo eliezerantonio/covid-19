@@ -3,6 +3,7 @@ import 'package:covid_19_cases/models/result.dart';
 import 'package:covid_19_cases/providers/cases_provider.dart';
 import 'package:covid_19_cases/ui/shared/widgets/covid_text.dart';
 import 'package:covid_19_cases/ui/mobile/widgets/header_case.dart';
+import 'package:covid_19_cases/ui/shared/widgets/filter_case.dart';
 import 'package:covid_19_cases/ui/shared/widgets/header_updates.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,13 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
         physics: const ClampingScrollPhysics(),
         children: [
           CovidText(),
-          const SizedBox(height: 10),
+          const SizedBox(
+            height: 30,
+          ),
+          FilterCase(),
+          const SizedBox(
+            height: 10,
+          ),
           PaginatedDataTable(
             columns: [
               DataColumn(
@@ -61,6 +68,9 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                   text: 'Mortos',
                 ),
               ),
+              const DataColumn(
+                label: Text("Ver")
+              ),
             ],
             onRowsPerPageChanged: (value) {
               setState(() {
@@ -77,7 +87,6 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
               ),
             ),
             rowsPerPage: _rowsPerPage,
-            actions: [],
           ),
         ],
       ),

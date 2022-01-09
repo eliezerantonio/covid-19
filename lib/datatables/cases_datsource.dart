@@ -1,4 +1,5 @@
 import 'package:covid_19_cases/models/result.dart';
+import 'package:covid_19_cases/ui/shared/screen/case_screen.dart';
 import 'package:flutter/material.dart';
 
 class CasesDTS extends DataTableSource {
@@ -15,6 +16,22 @@ class CasesDTS extends DataTableSource {
       DataCell(Text(caseCovid.confirmed.toString())),
       DataCell(Text(caseCovid.estimatedPopulation.toString())),
       DataCell(Text(caseCovid.deaths.toString())),
+      DataCell(
+        IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => CaseScreen(result: caseCovid),
+              ),
+            );
+          },
+          icon: const Icon(
+            Icons.visibility,
+            color: Colors.grey,
+          ),
+        ),
+      )
     ]);
   }
 
