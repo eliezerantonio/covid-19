@@ -1,4 +1,5 @@
 import 'package:covid_19_cases/ui/screens/home_screen.dart';
+import 'package:covid_19_cases/ui/screens/login_screen.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -9,7 +10,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
     return SplashScreenView(
-      navigateRoute: HomeScreen(),
+      navigateRoute: LoginScreen(),
       duration: 2000,
       imageSize: 400,
       imageSrc: "assets/medicos.png",

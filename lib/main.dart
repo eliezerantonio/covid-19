@@ -4,8 +4,8 @@ import 'package:covid_19_cases/ui/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'ui/screens/login_screen.dart';
 import 'ui/screens/shared/splash_screen.dart';
-
 
 void main() {
   CovidApi.configureDio();
