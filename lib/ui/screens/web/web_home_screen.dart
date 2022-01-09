@@ -21,16 +21,19 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
   @override
   Widget build(BuildContext context) {
     final casesProvider = context.watch<CasesProvider>();
-   
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: ListView(
         physics: const ClampingScrollPhysics(),
         children: [
-          if (casesProvider.loading)
-            LinearProgressIndicator(
-              color: Color(MyColors.primaryColor),
-            ),
+          Consumer<CasesProvider>(builder: (_, casesProvider, __) {
+            return casesProvider.loading
+                ? LinearProgressIndicator(
+                    color: Color(MyColors.primaryColor),
+                  )
+                : Container();
+          }),
           CovidText(),
           const SizedBox(
             height: 30,
@@ -76,8 +79,9 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                 ),
               ),
               const DataColumn(
-                  label:
-                      Text("Ver", )),
+                  label: Text(
+                "Ver",
+              )),
             ],
             onRowsPerPageChanged: (value) {
               setState(() {

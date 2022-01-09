@@ -10,73 +10,68 @@ class FilterCase extends StatelessWidget {
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
     final actualPage = context.watch<CasesProvider>().actualPage;
-    return Column(
+    return Wrap(
       children: [
-        Row(
-          children: [
-            Container(
-              width: 100,
-              height: responsive.hp(7),
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(7),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.red),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: const Text("Brasil", style: TextStyle(fontSize: 20)),
-            ),
-            const SizedBox(
-              width: 7,
-            ),
-            DrownStates(),
-            const SizedBox(
-              width: 7,
-            ),
-            IconButton(
-              onPressed: () {
-                calendar(context);
-              },
-              icon: const Icon(Icons.calendar_today),
-            ),
-            const Spacer(),
-            TextButton(
-              onPressed: () {
-                context.read<CasesProvider>().getCases();
-              },
-              child: const Text("Voltar Para Página  1"),
-            ),
-            SizedBox(
-              width: responsive.wp(2),
-            ),
-            Consumer<CasesProvider>(builder: (_, casesProvider, __) {
-              return IconButton(
-                onPressed: casesProvider.previusPage
-                    ? () {
-                        context.read<CasesProvider>().getCasesPreviusPage();
-                      }
-                    : null,
-                icon: const Icon(Icons.navigate_before),
-              );
-            }),
-            SizedBox(
-              width: responsive.wp(2),
-            ),
-            Consumer<CasesProvider>(builder: (_, casesProvider, __) {
-              return IconButton(
-                onPressed: casesProvider.nextPage
-                    ? () {
-                        context.read<CasesProvider>().getCasesNextPage();
-                      }
-                    : null,
-                icon: const Icon(Icons.navigate_next),
-              );
-            }),
-            SizedBox(
-              width: responsive.wp(2),
-            ),
-            Text("Página  atual ${actualPage - 1}")
-          ],
+        Container(
+          width: 100,
+          height: responsive.hp(7),
+          alignment: Alignment.center,
+          padding: const EdgeInsets.all(7),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.red),
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: const Text("Brasil", style: TextStyle(fontSize: 20)),
         ),
+        const SizedBox(
+          width: 7,
+        ),
+        DrownStates(),
+        const SizedBox(
+          width: 7,
+        ),
+        IconButton(
+          onPressed: () {
+            calendar(context);
+          },
+          icon: const Icon(Icons.calendar_today),
+        ),
+        TextButton(
+          onPressed: () {
+            context.read<CasesProvider>().getCases();
+          },
+          child: const Text("Voltar Para Página  1"),
+        ),
+        SizedBox(
+          width: responsive.wp(2),
+        ),
+        Consumer<CasesProvider>(builder: (_, casesProvider, __) {
+          return IconButton(
+            onPressed: casesProvider.previusPage
+                ? () {
+                    context.read<CasesProvider>().getCasesPreviusPage();
+                  }
+                : null,
+            icon: const Icon(Icons.navigate_before),
+          );
+        }),
+        SizedBox(
+          width: responsive.wp(2),
+        ),
+        Consumer<CasesProvider>(builder: (_, casesProvider, __) {
+          return IconButton(
+            onPressed: casesProvider.nextPage
+                ? () {
+                    context.read<CasesProvider>().getCasesNextPage();
+                  }
+                : null,
+            icon: const Icon(Icons.navigate_next),
+          );
+        }),
+        SizedBox(
+          width: responsive.wp(2),
+        ),
+        Text("Página  atual ${actualPage - 1}")
       ],
     );
   }

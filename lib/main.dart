@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'ui/screens/login_screen.dart';
 import 'ui/screens/shared/splash_screen.dart';
+import 'ui/screens/web/web_home_screen.dart';
 
 void main() {
   CovidApi.configureDio();
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
+      home: HomeScreen(),
     );
   }
 }

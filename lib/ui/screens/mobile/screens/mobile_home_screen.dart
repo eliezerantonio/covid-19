@@ -22,10 +22,13 @@ class MobileHomeScreen extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         controller: _scrollController,
         children: [
-          if (casesProvider.loading)
-            LinearProgressIndicator(
-              color: Color(MyColors.primaryColor),
-            ),
+          Consumer<CasesProvider>(builder: (_, casesProvider, __) {
+            return casesProvider.loading
+                ? LinearProgressIndicator(
+                    color: Color(MyColors.primaryColor),
+                  )
+                : Container();
+          }),
           CovidText(),
           const SizedBox(
             height: 30,
@@ -46,7 +49,7 @@ class MobileHomeScreen extends StatelessWidget {
             itemCount: casesProvider.cases.length,
             itemBuilder: (context, index) => Column(
               children: [
-                FadeInLeft(child: CaseItem(result: casesProvider.cases[index])),
+                CaseItem(result: casesProvider.cases[index]),
                 const SizedBox(height: 10),
               ],
             ),
