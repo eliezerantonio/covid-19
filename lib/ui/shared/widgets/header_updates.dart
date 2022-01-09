@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class HeaderUpdates extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final  responsive = Responsive.of(context);
+    final responsive = Responsive.of(context);
     return Container(
       height: responsive.hp(10),
       width: responsive.wp(100),

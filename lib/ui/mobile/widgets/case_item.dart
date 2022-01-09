@@ -32,7 +32,7 @@ class CaseItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              result.state!,
+              Result.getStateText(result.state!),
               style: TextStyle(fontSize: responsive.dp(1.5)),
             ),
             SizedBox(

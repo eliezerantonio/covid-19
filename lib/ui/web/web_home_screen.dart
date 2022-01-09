@@ -20,6 +20,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
   @override
   Widget build(BuildContext context) {
     final cases = context.watch<CasesProvider>().cases;
+   
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: ListView(
@@ -73,7 +74,9 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                   text: 'Mortos',
                 ),
               ),
-              const DataColumn(label: Text("Ver")),
+              const DataColumn(
+                  label:
+                      Text("Ver", )),
             ],
             onRowsPerPageChanged: (value) {
               setState(() {

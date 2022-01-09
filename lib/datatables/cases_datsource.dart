@@ -12,7 +12,7 @@ class CasesDTS extends DataTableSource {
     final caseCovid = cases[index];
 
     return DataRow.byIndex(index: index, cells: [
-      DataCell(Text(caseCovid.state.toString())),
+      DataCell(Text(Result.getStateText(caseCovid.state!))),
       DataCell(Text(caseCovid.confirmed.toString())),
       DataCell(Text(caseCovid.estimatedPopulation.toString())),
       DataCell(Text(caseCovid.deaths.toString())),

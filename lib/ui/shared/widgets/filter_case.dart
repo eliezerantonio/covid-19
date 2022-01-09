@@ -9,6 +9,7 @@ class FilterCase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
+    final actualPage = context.watch<CasesProvider>().actualPage;
     return Column(
       children: [
         Row(
@@ -32,10 +33,48 @@ class FilterCase extends StatelessWidget {
               width: 7,
             ),
             IconButton(
-                onPressed: () {
-                  calendar(context);
-                },
-                icon: const Icon(Icons.calendar_today))
+              onPressed: () {
+                calendar(context);
+              },
+              icon: const Icon(Icons.calendar_today),
+            ),
+            const Spacer(),
+            TextButton(
+              onPressed: () {
+                context.read<CasesProvider>().getCases();
+              },
+              child: const Text("Voltar Para Página  1"),
+            ),
+            SizedBox(
+              width: responsive.wp(2),
+            ),
+            Consumer<CasesProvider>(builder: (_, casesProvider, __) {
+              return IconButton(
+                onPressed: casesProvider.previusPage
+                    ? () {
+                        context.read<CasesProvider>().getCasesPreviusPage();
+                      }
+                    : null,
+                icon: const Icon(Icons.navigate_before),
+              );
+            }),
+            SizedBox(
+              width: responsive.wp(2),
+            ),
+            Consumer<CasesProvider>(builder: (_, casesProvider, __) {
+              return IconButton(
+                onPressed: casesProvider.nextPage
+                    ? () {
+                        context.read<CasesProvider>().getCasesNextPage();
+                      }
+                    : null,
+                icon: const Icon(Icons.navigate_next),
+              );
+            }),
+            SizedBox(
+              width: responsive.wp(2),
+            ),
+            Text("Página  atual ${actualPage - 1}")
           ],
         ),
       ],
@@ -47,7 +86,7 @@ class FilterCase extends StatelessWidget {
     DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(2020,  3, 7),
+      firstDate: DateTime(2020, 3, 7),
       lastDate: DateTime.now(),
     );
 
