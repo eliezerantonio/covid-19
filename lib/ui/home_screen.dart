@@ -16,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(17.0),
+          //abrindo telas para plataformas adequandas
           child: kIsWeb ? WebHomeScreen() : MobileHomeScreen(),
         ),
       ),

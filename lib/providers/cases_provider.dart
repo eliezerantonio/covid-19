@@ -18,4 +18,17 @@ class CasesProvider with ChangeNotifier {
 
     notifyListeners();
   }
+
+  Future<void> search({String? state, String? date}) async {
+    print(date);
+    // final response = await CovidApi.httpGet("/?search&date=$date");
+    final response = await CovidApi.httpGet("/?search&date=$date&state=$state");
+    final casesResponse = CasesResponse.fromJson(response);
+
+    cases = [...?casesResponse.results];
+
+    print(cases);
+
+    notifyListeners();
+  }
 }

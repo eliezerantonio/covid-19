@@ -1,5 +1,7 @@
+import 'package:covid_19_cases/providers/cases_provider.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DrownStates extends StatefulWidget {
   @override
@@ -25,6 +27,10 @@ class _DrownStatesState extends State<DrownStates> {
       onChanged: (String? newValue) {
         setState(() {
           dropdownValue = newValue!;
+
+          //filtrando por estado
+
+          context.read<CasesProvider>().search(state: newValue);
         });
       },
       items: <String>[

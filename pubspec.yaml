@@ -35,6 +35,7 @@ dependencies:
     sdk: flutter
   flutter_svg: ^1.0.0
   graphic: ^0.7.0
+  intl: ^0.17.0
   lottie: ^1.2.1
   provider: ^6.0.0
   shared_preferences: ^2.0.5
