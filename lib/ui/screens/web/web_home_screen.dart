@@ -1,7 +1,6 @@
 import 'package:covid_19_cases/datatables/cases_datsource.dart';
-import 'package:covid_19_cases/models/result.dart';
 import 'package:covid_19_cases/providers/cases_provider.dart';
-import 'package:covid_19_cases/ui/screens/mobile/widgets/header_case.dart';
+import 'package:covid_19_cases/ui/screens/shared/widgets/header_case.dart';
 import 'package:covid_19_cases/ui/screens/shared/widgets/covid_text.dart';
 import 'package:covid_19_cases/ui/screens/shared/widgets/filter_case.dart';
 import 'package:covid_19_cases/ui/screens/shared/widgets/header_updates.dart';
