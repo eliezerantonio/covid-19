@@ -28,7 +28,9 @@ class _LoginScreenState extends State<LoginScreen> {
         height: size.height,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [],
+          children: const [
+            CardLogin(),
+          ],
         ),
       ),
     );
@@ -42,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
           width: size.width * 0.4,
           child: Center(child: Image.asset("assets/virus.gif")),
         ),
-        Container(
+        SizedBox(
           width: size.width * 0.6,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

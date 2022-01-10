@@ -1,8 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:covid_19_cases/models/result.dart';
 import 'package:covid_19_cases/providers/cases_provider.dart';
-import 'package:covid_19_cases/ui/screens/mobile/widgets/case_item.dart';
-import 'package:covid_19_cases/ui/screens/mobile/widgets/header_list_cases.dart';
+
 import 'package:covid_19_cases/ui/screens/shared/widgets/covid_text.dart';
 import 'package:covid_19_cases/ui/screens/shared/widgets/filter_case.dart';
 import 'package:covid_19_cases/ui/screens/shared/widgets/header_updates.dart';
@@ -11,6 +10,9 @@ import 'package:covid_19_cases/utils/my_colors.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'widgets/case_item.dart';
+import 'widgets/header_list_cases.dart';
 
 class MobileHomeScreen extends StatefulWidget {
   @override

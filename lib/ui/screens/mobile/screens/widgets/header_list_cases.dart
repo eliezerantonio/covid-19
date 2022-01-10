@@ -1,7 +1,8 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:covid_19_cases/ui/screens/mobile/widgets/header_case.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
+
+import 'header_case.dart';
 
 class HeaderListCases extends StatelessWidget {
   @override

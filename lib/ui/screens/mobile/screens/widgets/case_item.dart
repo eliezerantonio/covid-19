@@ -1,5 +1,4 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:covid_19_cases/ui/screens/mobile/widgets/custom_text_view.dart';
 import 'package:covid_19_cases/ui/screens/shared/screen/case_screen.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
