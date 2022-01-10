@@ -47,7 +47,7 @@ class FilterCase extends StatelessWidget {
         ),
         Consumer<CasesProvider>(builder: (_, casesProvider, __) {
           return IconButton(
-            onPressed: casesProvider.previusPage
+            onPressed: casesProvider.actualPage > 2
                 ? () {
                     context.read<CasesProvider>().getCasesPreviusPage();
                   }
@@ -60,7 +60,7 @@ class FilterCase extends StatelessWidget {
         ),
         Consumer<CasesProvider>(builder: (_, casesProvider, __) {
           return IconButton(
-            onPressed: casesProvider.nextPage
+            onPressed: casesProvider.actualPage < 24
                 ? () {
                     context.read<CasesProvider>().getCasesNextPage();
                   }

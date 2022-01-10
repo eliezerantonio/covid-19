@@ -1,12 +1,10 @@
 import 'package:covid_19_cases/api/covid_api.dart';
 import 'package:covid_19_cases/providers/cases_provider.dart';
-import 'package:covid_19_cases/ui/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'ui/screens/shared/screen/login_screen/login_screen.dart';
+import 'providers/user_provider.dart';
 import 'ui/screens/shared/screen/splash_screen/splash_screen.dart';
-import 'ui/screens/web/web_home_screen.dart';
 
 void main() {
   CovidApi.configureDio();
@@ -24,6 +22,9 @@ class ProviderApp extends StatelessWidget {
           lazy: false,
           create: (_) => CasesProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => UserProvider(),
+        )
       ],
       child: const MyApp(),
     );

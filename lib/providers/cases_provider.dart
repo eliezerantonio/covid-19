@@ -11,8 +11,7 @@ class CasesProvider with ChangeNotifier {
 
   List<Result> cases = [];
 
-  bool nextPage = true;
-  bool previusPage = false;
+  
   int actualPage = 2;
   bool _loading = false;
 
@@ -35,7 +34,6 @@ class CasesProvider with ChangeNotifier {
   }
 
   Future<void> getCasesNextPage() async {
-    if (!canNextPage(actualPage)) return;
     loading = true;
     final response = await CovidApi.httpGet("/?page=$actualPage");
     final casesResponse = CasesResponse.fromJson(response);
@@ -47,7 +45,6 @@ class CasesProvider with ChangeNotifier {
   }
 
   Future<void> getCasesPreviusPage() async {
-    if (!canPreviusPage(actualPage)) return;
     loading = true;
     final response = await CovidApi.httpGet("/?page=$actualPage");
     final casesResponse = CasesResponse.fromJson(response);
@@ -69,27 +66,6 @@ class CasesProvider with ChangeNotifier {
     loading = false;
   }
 
-  bool canNextPage(int actualPage) {
-    if (actualPage <= 23) {
-      previusPage = true;
-      nextPage = true;
-      return true;
-    } else {
-      nextPage = false;
-      notifyListeners();
-      return false;
-    }
-  }
+  
 
-  bool canPreviusPage(int actualPage) {
-    if (actualPage > 1) {
-      previusPage = true;
-      nextPage = true;
-      return true;
-    } else {
-      previusPage = false;
-      notifyListeners();
-      return false;
-    }
-  }
 }
