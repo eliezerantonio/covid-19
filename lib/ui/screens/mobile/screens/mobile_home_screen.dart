@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:covid_19_cases/models/result.dart';
 import 'package:covid_19_cases/providers/cases_provider.dart';
 import 'package:covid_19_cases/ui/screens/mobile/widgets/case_item.dart';
 import 'package:covid_19_cases/ui/screens/mobile/widgets/header_list_cases.dart';
@@ -11,12 +12,23 @@ import 'package:covid_19_cases/utils/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class MobileHomeScreen extends StatelessWidget {
+class MobileHomeScreen extends StatefulWidget {
+  @override
+  State<MobileHomeScreen> createState() => _MobileHomeScreenState();
+}
+
+class _MobileHomeScreenState extends State<MobileHomeScreen> {
   final ScrollController _scrollController = ScrollController();
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final casesProvider = context.watch<CasesProvider>();
+    final cases = context.watch<CasesProvider>().cases;
     return Scaffold(
       body: ListView(
         physics: const BouncingScrollPhysics(),
@@ -43,37 +55,49 @@ class MobileHomeScreen extends StatelessWidget {
           ),
           HeaderListCases(),
           const SizedBox(height: 10),
-          ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: casesProvider.cases.length,
-            itemBuilder: (context, index) => Column(
-              children: [
-                CaseItem(result: casesProvider.cases[index]),
-                const SizedBox(height: 10),
-              ],
-            ),
-          )
+          _listViewCases(cases)
         ],
       ),
-      floatingActionButton: IconButton(
-        onPressed: () {
-          _scrollController.animateTo(
-            _scrollController.position.minScrollExtent,
-            curve: Curves.easeOut,
-            duration: const Duration(milliseconds: 500),
-          );
-        },
-        icon: Container(
-          height: 40,
-          width: 40,
-          decoration: BoxDecoration(
-              color: Colors.blue[900]!.withOpacity(0.7),
-              shape: BoxShape.circle),
-          child: const Icon(Icons.arrow_upward_outlined,
-              size: 30, color: Colors.white),
-        ),
+      floatingActionButton: _floatingActionButton(),
+    );
+  }
+
+  IconButton _floatingActionButton() {
+    return IconButton(
+      onPressed: () {
+        _scrollController.animateTo(
+          _scrollController.position.minScrollExtent,
+          curve: Curves.easeOut,
+          duration: const Duration(milliseconds: 500),
+        );
+      },
+      icon: Container(
+        height: 40,
+        width: 40,
+        decoration: BoxDecoration(
+            color: Colors.blue[900]!.withOpacity(0.7), shape: BoxShape.circle),
+        child: const Icon(Icons.arrow_upward_outlined,
+            size: 30, color: Colors.white),
       ),
     );
+  }
+
+  ListView _listViewCases(List<Result> cases) {
+    return ListView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: cases.length,
+        itemBuilder: (context, index) {
+          if (cases.isEmpty) {
+            return Center(child: CircularProgressIndicator());
+          } else {
+            return Column(
+              children: [
+                CaseItem(result: cases[index]),
+                const SizedBox(height: 10),
+              ],
+            );
+          }
+        });
   }
 }

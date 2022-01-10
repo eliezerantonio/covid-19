@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:covid_19_cases/ui/screens/mobile/widgets/custom_text_view.dart';
 import 'package:covid_19_cases/ui/screens/shared/screen/case_screen.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
@@ -25,44 +26,20 @@ class CaseItem extends StatelessWidget {
             ),
           );
         },
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Container(
-            width: responsive.wp(100),
-            padding: EdgeInsets.all(responsive.wp(2)),
-            decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(5)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  Result.getStateText(result.state!),
-                  style: TextStyle(fontSize: responsive.dp(1.5)),
-                ),
-                SizedBox(
-                  width: responsive.wp(10),
-                ),
-                Text(
-                  result.confirmed!.toString(),
-                  style: TextStyle(fontSize: responsive.dp(1.5)),
-                ),
-                SizedBox(
-                  width: responsive.wp(7),
-                ),
-                Text(
-                  result.deaths.toString(),
-                  style: TextStyle(fontSize: responsive.dp(1.5)),
-                ),
-                SizedBox(
-                  width: responsive.wp(7),
-                ),
-                Text(
-                  result.deaths.toString(),
-                  style: TextStyle(fontSize: responsive.dp(1.5)),
-                ),
-              ],
-            ),
+        child: Container(
+          // width: responsive.wp(100),
+          padding: EdgeInsets.only(
+            right: responsive.wp(1),
+            left: responsive.wp(1),
+            top: responsive.hp(0.5),
+            bottom: responsive.hp(0.5),
+          ),
+          decoration: BoxDecoration(
+              color: Colors.grey[300], borderRadius: BorderRadius.circular(5)),
+          child: ListTile(
+            leading: Text(Result.getStateText(result.state!)),
+            title: Center(child: Text(result.confirmed.toString())),
+            trailing: Text(result.deaths.toString()),
           ),
         ),
       ),

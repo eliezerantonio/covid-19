@@ -4,8 +4,8 @@ import 'package:covid_19_cases/ui/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'ui/screens/login_screen.dart';
-import 'ui/screens/shared/splash_screen.dart';
+import 'ui/screens/shared/screen/login_screen/login_screen.dart';
+import 'ui/screens/shared/screen/splash_screen/splash_screen.dart';
 import 'ui/screens/web/web_home_screen.dart';
 
 void main() {
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: SplashScreen(),
     );
   }
 }

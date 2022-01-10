@@ -29,6 +29,7 @@ class CasesProvider with ChangeNotifier {
     final casesResponse = CasesResponse.fromJson(response);
 
     cases = [...?casesResponse.results];
+
     actualPage = 2;
     loading = false;
   }
@@ -54,7 +55,7 @@ class CasesProvider with ChangeNotifier {
     cases = [...?casesResponse.results];
     actualPage--;
 
-   loading = false;
+    loading = false;
   }
 
   Future<void> search({String? state = "", String? date = ""}) async {
@@ -65,7 +66,7 @@ class CasesProvider with ChangeNotifier {
 
     cases = [...?casesResponse.results];
 
-   loading = false;
+    loading = false;
   }
 
   bool canNextPage(int actualPage) {
@@ -81,9 +82,9 @@ class CasesProvider with ChangeNotifier {
   }
 
   bool canPreviusPage(int actualPage) {
-    if (actualPage > 2) {
+    if (actualPage > 1) {
       previusPage = true;
-      nextPage=true;
+      nextPage = true;
       return true;
     } else {
       previusPage = false;

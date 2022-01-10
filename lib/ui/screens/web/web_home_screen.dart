@@ -23,7 +23,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
     final casesProvider = context.watch<CasesProvider>();
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 10),
       child: ListView(
         physics: const ClampingScrollPhysics(),
         children: [
