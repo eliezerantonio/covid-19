@@ -1,4 +1,4 @@
-import 'package:covid_19_cases/ui/alert_dialog.dart';
+import 'package:covid_19_cases/utils/alert_dialog.dart';
 import 'package:flutter/material.dart';
 
 bool validateCrentials(String email, String password, BuildContext context) {

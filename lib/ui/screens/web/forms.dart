@@ -1,4 +1,4 @@
-import 'package:covid_19_cases/ui/alert_dialog.dart';
+import 'package:covid_19_cases/utils/alert_dialog.dart';
 import 'package:covid_19_cases/ui/screens/custom_textfield.dart';
 import 'package:covid_19_cases/ui/screens/home_screen.dart';
 import 'package:covid_19_cases/utils/my_colors.dart';

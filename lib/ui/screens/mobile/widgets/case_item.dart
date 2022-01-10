@@ -25,39 +25,44 @@ class CaseItem extends StatelessWidget {
             ),
           );
         },
-        child: Container(
-          padding: EdgeInsets.all(responsive.wp(2)),
-          decoration: BoxDecoration(
-              color: Colors.grey[300], borderRadius: BorderRadius.circular(5)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                Result.getStateText(result.state!),
-                style: TextStyle(fontSize: responsive.dp(1.5)),
-              ),
-              SizedBox(
-                width: responsive.wp(10),
-              ),
-              Text(
-                result.confirmed!.toString(),
-                style: TextStyle(fontSize: responsive.dp(1.5)),
-              ),
-              SizedBox(
-                width: responsive.wp(7),
-              ),
-              Text(
-                result.deaths.toString(),
-                style: TextStyle(fontSize: responsive.dp(1.5)),
-              ),
-              SizedBox(
-                width: responsive.wp(7),
-              ),
-              Text(
-                result.deaths.toString(),
-                style: TextStyle(fontSize: responsive.dp(1.5)),
-              ),
-            ],
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Container(
+            width: responsive.wp(100),
+            padding: EdgeInsets.all(responsive.wp(2)),
+            decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(5)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  Result.getStateText(result.state!),
+                  style: TextStyle(fontSize: responsive.dp(1.5)),
+                ),
+                SizedBox(
+                  width: responsive.wp(10),
+                ),
+                Text(
+                  result.confirmed!.toString(),
+                  style: TextStyle(fontSize: responsive.dp(1.5)),
+                ),
+                SizedBox(
+                  width: responsive.wp(7),
+                ),
+                Text(
+                  result.deaths.toString(),
+                  style: TextStyle(fontSize: responsive.dp(1.5)),
+                ),
+                SizedBox(
+                  width: responsive.wp(7),
+                ),
+                Text(
+                  result.deaths.toString(),
+                  style: TextStyle(fontSize: responsive.dp(1.5)),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -20,34 +20,37 @@ class CasesItem extends StatelessWidget {
   }
 
 //big screen
-  Row web() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        NumberCase(
-          responsive: responsive,
-          number: result.confirmed!,
-          iconData: Icons.add,
-          text: "Confirmados",
-          color: Colors.orange,
-        ),
-        SizedBox(width: responsive.dp(2)),
-        NumberCase(
-          responsive: responsive,
-          number: result.estimatedPopulation!,
-          iconData: Icons.favorite,
-          text: "População",
-          color: Colors.green,
-        ),
-        SizedBox(width: responsive.dp(2)),
-        NumberCase(
-          responsive: responsive,
-          number: result.deaths!,
-          iconData: Icons.close,
-          text: "Mortos",
-          color: Colors.red,
-        ),
-      ],
+  Widget web() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          NumberCase(
+            responsive: responsive,
+            number: result.confirmed!,
+            iconData: Icons.add,
+            text: "Confirmados",
+            color: Colors.orange,
+          ),
+          SizedBox(width: responsive.dp(2)),
+          NumberCase(
+            responsive: responsive,
+            number: result.estimatedPopulation!,
+            iconData: Icons.favorite,
+            text: "População",
+            color: Colors.green,
+          ),
+          SizedBox(width: responsive.dp(2)),
+          NumberCase(
+            responsive: responsive,
+            number: result.deaths!,
+            iconData: Icons.close,
+            text: "Mortos",
+            color: Colors.red,
+          ),
+        ],
+      ),
     );
   }
 

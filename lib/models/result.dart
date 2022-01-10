@@ -1,4 +1,3 @@
-
 class Result {
   String? city;
   String? cityIbgeCode;
@@ -104,6 +103,8 @@ class Result {
         return 'Rio de Janeiro';
       case "RN":
         return 'Rio Grande do Norte';
+      case "RR":
+        return 'Roraima';
       case "RS":
         return 'Rio Grande do Sul';
       case "RO":
