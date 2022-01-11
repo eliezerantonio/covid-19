@@ -1,5 +1,5 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:covid_19_cases/ui/screens/shared/screen/case_screen.dart';
+import 'package:covid_19_cases/ui/screens/shared/screen/case_screen/case_screen.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:covid_19_cases/models/result.dart';
@@ -15,7 +15,7 @@ class CaseItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
-    return FadeIn(
+    return FadeInUpBig(
       child: GestureDetector(
         onTap: () {
           Navigator.push(

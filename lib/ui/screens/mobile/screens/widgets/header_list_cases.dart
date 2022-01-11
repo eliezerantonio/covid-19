@@ -8,21 +8,23 @@ class HeaderListCases extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
-    return const ListTile(
-      dense: true,
-      leading: HeaderCase(
-        color: Colors.orange,
-        text: 'Estado',
+    return FadeInUpBig(
+      child: const ListTile(
+        dense: true,
+        leading: HeaderCase(
+          color: Colors.orange,
+          text: 'Estado',
+        ),
+        title: HeaderCase(
+          color: Colors.blue,
+          text: 'Confirmados',
+        ),
+        trailing: HeaderCase(
+          color: Colors.red,
+          text: 'Mortos',
+        ),
+        subtitle: Text(""),
       ),
-      title: HeaderCase(
-        color: Colors.blue,
-        text: 'Confirmados',
-      ),
-      trailing: HeaderCase(
-        color: Colors.red,
-        text: 'Mortos',
-      ),
-      subtitle: Text(""),
     );
   }
 }

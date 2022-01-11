@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:covid_19_cases/models/user.dart';
 import 'package:covid_19_cases/providers/user_provider.dart';
 import 'package:covid_19_cases/utils/alert_dialog.dart';
@@ -7,7 +8,6 @@ import 'package:covid_19_cases/utils/my_colors.dart';
 import 'package:covid_19_cases/utils/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 
 class Forms extends StatefulWidget {
   Forms({Key? key}) : super(key: key);
@@ -33,8 +33,11 @@ class _FormsState extends State<Forms> {
         const SizedBox(
           height: 8,
         ),
-        CustomTextField(
-          controller: emailController,
+        
+        FadeInLeft(
+          child: CustomTextField(
+            controller: emailController,
+          ),
         ),
         const SizedBox(
           height: 22,
@@ -43,35 +46,39 @@ class _FormsState extends State<Forms> {
         const SizedBox(
           height: 8,
         ),
-        CustomTextField(
-          controller: passwordController,
-          password: true,
+        FadeInRight(
+          child: CustomTextField(
+            controller: passwordController,
+            password: true,
+          ),
         ),
         const SizedBox(
           height: 25,
         ),
         Consumer<UserProvider>(builder: (_, user, __) {
-          return AnimatedContainer(
-            duration: const Duration(milliseconds: 1500),
-            alignment: user.loading ? Alignment.center : Alignment.centerLeft,
-            child: GestureDetector(
-              onTap: () {
-                _onClickLogin(context);
-              },
-              child: AnimatedContainer(
-                width: !user.loading ? 400 : 44,
-                height: !user.loading ? 44 : 44,
-                alignment: Alignment.center,
-                child: !user.loading
-                    ? const Text(
-                        'Login',
-                        style: TextStyle(color: Colors.white),
-                      )
-                    : const CircularProgressIndicator(),
-                decoration: BoxDecoration(
-                    color: Color(MyColors.primaryColor),
-                    borderRadius: BorderRadius.circular(10)),
-                duration: const Duration(milliseconds: 1300),
+          return FadeInDown(
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 1500),
+              alignment: user.loading ? Alignment.center : Alignment.centerLeft,
+              child: GestureDetector(
+                onTap: () {
+                  _onClickLogin(context);
+                },
+                child: AnimatedContainer(
+                  width: !user.loading ? 400 : 44,
+                  height: !user.loading ? 44 : 44,
+                  alignment: Alignment.center,
+                  child: !user.loading
+                      ? const Text(
+                          'Login',
+                          style: TextStyle(color: Colors.white),
+                        )
+                      : const CircularProgressIndicator(),
+                  decoration: BoxDecoration(
+                      color: Color(MyColors.primaryColor),
+                      borderRadius: BorderRadius.circular(10)),
+                  duration: const Duration(milliseconds: 1300),
+                ),
               ),
             ),
           );

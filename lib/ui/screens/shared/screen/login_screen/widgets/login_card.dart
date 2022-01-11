@@ -1,4 +1,5 @@
-
+import 'package:animate_do/animate_do.dart';
+import 'package:covid_19_cases/ui/screens/shared/widgets/covid_text.dart';
 import 'package:covid_19_cases/utils/my_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -20,29 +21,30 @@ class CardLogin extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Bem vindo',
-                    style: TextStyle(fontSize: 16, color: Colors.black45),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Login',
-                    style: TextStyle(
-                        fontSize: 36, color: Color(MyColors.primaryColor)),
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  Forms(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    FadeIn(
+                      child: Center(
+                        child: Image.asset(
+                          "assets/contamin.gif",
+                          width: 200,
+                          height: 100,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    CovidText(),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Forms(),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

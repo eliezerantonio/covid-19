@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:covid_19_cases/models/result.dart';
 import 'package:covid_19_cases/ui/screens/shared/widgets/number_cases.dart';
 import 'package:covid_19_cases/utils/responsive.dart';
@@ -16,7 +17,8 @@ class CasesItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Container(child: (size.width > 354) ? web() : mobile());
+    return FadeInUpBig(
+        child: Container(child: (size.width > 354) ? web() : mobile()));
   }
 
 //big screen
