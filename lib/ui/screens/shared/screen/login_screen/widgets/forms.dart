@@ -17,8 +17,6 @@ class Forms extends StatefulWidget {
 }
 
 class _FormsState extends State<Forms> {
-  bool isLoading = false;
-
   //controller
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -97,18 +95,16 @@ class _FormsState extends State<Forms> {
       ..email = email
       ..password = password;
 
-    context.read<UserProvider>().login(user).then(
-      (ok) {
-        if (ok) {
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (_) => HomeScreen()));
-        } else {
-          alertDialog(
-            context,
-            "Credenciais não conferem",
-          );
-        }
-      },
-    );
+  final ok= await context.read<UserProvider>().login(user);
+  if (ok) {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (_) => HomeScreen()));
+    } else {
+      alertDialog(
+        context,
+        "Credenciais não conferem",
+      );
+    }
+
   }
 }
