@@ -36,7 +36,16 @@ class CaseItem extends StatelessWidget {
           decoration: BoxDecoration(
               color: Colors.grey[300], borderRadius: BorderRadius.circular(5)),
           child: ListTile(
-            leading: Text(Result.getStateText(result.state!)),
+            leading: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(Result.getStateText(result.state!)),
+
+                Text(result.date.toString(),
+                    style: TextStyle(color: Colors.grey))
+              ],
+            ),
             title: Center(child: Text(result.confirmed.toString())),
             trailing: Text(result.deaths.toString()),
           ),
