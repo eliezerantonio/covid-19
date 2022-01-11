@@ -18,6 +18,7 @@ this app lists cases of covid-19 from several states in Brazil
 - [X] Case detail
 - [X] Mobile
 - [X] Web
+- [X] web responsive 
 
 
 
