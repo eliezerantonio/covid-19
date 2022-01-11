@@ -45,35 +45,47 @@ class FilterCase extends StatelessWidget {
         SizedBox(
           width: responsive.wp(2),
         ),
-        Consumer<CasesProvider>(builder: (_, casesProvider, __) {
-          return IconButton(
-            onPressed: casesProvider.actualPage > 2
-                ? () {
-                    context.read<CasesProvider>().getCasesPreviusPage();
-                  }
-                : null,
-            icon: const Icon(Icons.navigate_before),
-          );
-        }),
+        iconPrevious(context),
         SizedBox(
           width: responsive.wp(2),
         ),
-        Consumer<CasesProvider>(builder: (_, casesProvider, __) {
-          return IconButton(
-            onPressed: casesProvider.actualPage < 24
-                ? () {
-                    context.read<CasesProvider>().getCasesNextPage();
-                  }
-                : null,
-            icon: const Icon(Icons.navigate_next),
-          );
-        }),
+        iconNext(context),
         SizedBox(
           width: responsive.wp(2),
         ),
         Text("Página  atual ${actualPage - 1}")
       ],
     );
+  }
+
+  Consumer<CasesProvider> iconNext(BuildContext context) {
+    return Consumer<CasesProvider>(builder: (_, casesProvider, __) {
+      return IconButton(
+        onPressed: casesProvider.actualPage < 24
+            ? !casesProvider.loading
+                ? () {
+                    context.read<CasesProvider>().getCasesNextPage();
+                  }
+                : null
+            : null,
+        icon: const Icon(Icons.navigate_next),
+      );
+    });
+  }
+
+  Consumer<CasesProvider> iconPrevious(BuildContext context) {
+    return Consumer<CasesProvider>(builder: (_, casesProvider, __) {
+      return IconButton(
+        onPressed: casesProvider.actualPage > 2
+            ? !casesProvider.loading
+                ? () {
+                    context.read<CasesProvider>().getCasesPreviousPage();
+                  }
+                : null
+            : null,
+        icon: const Icon(Icons.navigate_before),
+      );
+    });
   }
 
   Future<void> calendar(BuildContext context) async {

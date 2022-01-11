@@ -11,7 +11,6 @@ class CasesProvider with ChangeNotifier {
 
   List<Result> cases = [];
 
-  
   int actualPage = 2;
   bool _loading = false;
 
@@ -44,7 +43,7 @@ class CasesProvider with ChangeNotifier {
     loading = false;
   }
 
-  Future<void> getCasesPreviusPage() async {
+  Future<void> getCasesPreviousPage() async {
     loading = true;
     final response = await CovidApi.httpGet("/?page=$actualPage");
     final casesResponse = CasesResponse.fromJson(response);
@@ -56,7 +55,6 @@ class CasesProvider with ChangeNotifier {
   }
 
   Future<void> search({String? state = "", String? date = ""}) async {
-    cases.clear();
     loading = true;
     final response = await CovidApi.httpGet("/?search&date=$date&state=$state");
     final casesResponse = CasesResponse.fromJson(response);
@@ -65,7 +63,4 @@ class CasesProvider with ChangeNotifier {
 
     loading = false;
   }
-
-  
-
 }

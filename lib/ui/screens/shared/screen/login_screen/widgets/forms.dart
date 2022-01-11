@@ -7,7 +7,7 @@ import 'package:covid_19_cases/utils/my_colors.dart';
 import 'package:covid_19_cases/utils/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:universal_html/js.dart';
+
 
 class Forms extends StatefulWidget {
   Forms({Key? key}) : super(key: key);
