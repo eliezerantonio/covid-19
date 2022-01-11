@@ -22,45 +22,63 @@ class CasesProvider with ChangeNotifier {
   }
 
   Future<void> getCases() async {
-    loading = true;
-    final response = await CovidApi.httpGet("/");
-    final casesResponse = CasesResponse.fromJson(response);
+    try {
+      loading = true;
+      final response = await CovidApi.httpGet("/");
+      final casesResponse = CasesResponse.fromJson(response);
 
-    cases = [...?casesResponse.results];
+      cases = [...?casesResponse.results];
 
-    actualPage = 2;
-    loading = false;
+      actualPage = 2;
+    } catch (e) {
+      print("Error $e");
+    } finally {
+      loading = false;
+    }
   }
 
   Future<void> getCasesNextPage() async {
-    loading = true;
-    final response = await CovidApi.httpGet("/?page=$actualPage");
-    final casesResponse = CasesResponse.fromJson(response);
+    try {
+      loading = true;
+      final response = await CovidApi.httpGet("/?page=$actualPage");
+      final casesResponse = CasesResponse.fromJson(response);
 
-    cases = [...?casesResponse.results];
-    actualPage++;
-
-    loading = false;
+      cases = [...?casesResponse.results];
+      actualPage++;
+    } catch (e) {
+      print("Error $e");
+    } finally {
+      loading = false;
+    }
   }
 
   Future<void> getCasesPreviousPage() async {
-    loading = true;
-    final response = await CovidApi.httpGet("/?page=$actualPage");
-    final casesResponse = CasesResponse.fromJson(response);
+    try {
+      loading = true;
+      final response = await CovidApi.httpGet("/?page=$actualPage");
+      final casesResponse = CasesResponse.fromJson(response);
 
-    cases = [...?casesResponse.results];
-    actualPage--;
-
-    loading = false;
+      cases = [...?casesResponse.results];
+      actualPage--;
+    } catch (e) {
+      print("Error $e");
+    } finally {
+      loading = false;
+    }
   }
 
   Future<void> search({String? state = "", String? date = ""}) async {
-    loading = true;
-    final response = await CovidApi.httpGet("/?search&date=$date&state=$state");
-    final casesResponse = CasesResponse.fromJson(response);
+    try {
+      loading = true;
+      final response =
+          await CovidApi.httpGet("/?search&date=$date&state=$state");
+      final casesResponse = CasesResponse.fromJson(response);
 
-    cases = [...?casesResponse.results];
-
-    loading = false;
+      cases = [...?casesResponse.results];
+    } catch (e) {
+      print("Error $e");
+    } finally {
+      loading = false;
+    }
   }
 }
