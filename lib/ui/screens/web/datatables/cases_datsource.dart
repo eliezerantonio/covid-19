@@ -17,6 +17,7 @@ class CasesDTS extends DataTableSource {
       DataCell(Text(caseCovid.confirmed.toString())),
       DataCell(Text(caseCovid.estimatedPopulation.toString())),
       DataCell(Text(caseCovid.deaths.toString())),
+      DataCell(Text(caseCovid.date.toString())),
       DataCell(
         IconButton(
           onPressed: () {
