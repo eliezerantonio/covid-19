@@ -16,8 +16,8 @@ this app lists cases of covid-19 from several states in Brazil
 - [X] Previuos API page
 - [X] Graphic
 - [X] Case detail
-- [X] Mobile
-- [X] Web
+- [X] App Mobile
+- [X] App Web
 - [X] web responsive 
 
 
