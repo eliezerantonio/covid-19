@@ -20,7 +20,36 @@ class MobileHomeScreen extends StatefulWidget {
 }
 
 class _MobileHomeScreenState extends State<MobileHomeScreen> {
-  final ScrollController _scrollController = ScrollController();
+  late final ScrollController _scrollController;
+  int index = 0;
+  @override
+  void initState() {
+    super.initState();
+
+    final cases = context.read<CasesProvider>().cases;
+
+//criando InfiniteScroll
+
+//em cada requisição recebemos muitos resultados 
+//se exibir tudo de uma vez teremos uma queda de performance
+//então vamos exibir 50  resultados de cada vez
+
+    if (cases.isNotEmpty) {
+      index = 50;
+
+      _scrollController = ScrollController();
+
+      _scrollController.addListener(() {
+        if (_scrollController.position.pixels ==
+            _scrollController.position.maxScrollExtent) {
+          if (index < cases.length) {
+            index = index + 50;
+            setState(() {});
+          }
+        }
+      });
+    }
+  }
 
   @override
   void dispose() {
@@ -88,18 +117,14 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: cases.length,
+        itemCount: index,
         itemBuilder: (context, index) {
-          if (cases.isEmpty) {
-            return Center(child: CircularProgressIndicator());
-          } else {
-            return Column(
-              children: [
-                CaseItem(result: cases[index]),
-                const SizedBox(height: 10),
-              ],
-            );
-          }
+          return Column(
+            children: [
+              CaseItem(result: cases[index]),
+              const SizedBox(height: 10),
+            ],
+          );
         });
   }
 }

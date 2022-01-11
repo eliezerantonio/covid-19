@@ -15,7 +15,7 @@ class CaseItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
-    return FadeInUpBig(
+    return FadeInUp(
       child: GestureDetector(
         onTap: () {
           Navigator.push(

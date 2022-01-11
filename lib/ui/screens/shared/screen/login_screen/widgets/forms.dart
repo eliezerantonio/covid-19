@@ -20,8 +20,8 @@ class _FormsState extends State<Forms> {
   bool isLoading = false;
 
   //controller
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final emailController = TextEditingController(text: "digistarts@gmail.com");
+  final passwordController = TextEditingController(text: "Digistarts");
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,6 @@ class _FormsState extends State<Forms> {
         const SizedBox(
           height: 8,
         ),
-        
         FadeInLeft(
           child: CustomTextField(
             controller: emailController,
