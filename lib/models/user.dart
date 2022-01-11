@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-class User with ChangeNotifier {
+class User {
   late String email;
   late String password;
-
 }
