@@ -18,3 +18,8 @@ this app lists cases of covid-19 from several states in Brazil
 - [X] Mobile
 - [X] Web
 
+
+to access the APP you need email and password\
+here:\
+Email: digistarts@gmail.com\
+Password: Digistarts
