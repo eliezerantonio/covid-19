@@ -26,6 +26,7 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
   void initState() {
     super.initState();
 
+    _scrollController = ScrollController();
     final cases = context.read<CasesProvider>().cases;
 
 //criando InfiniteScroll
@@ -37,8 +38,7 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
     if (cases.isNotEmpty) {
       index = 50;
 
-      _scrollController = ScrollController();
-
+    
       _scrollController.addListener(() {
         if (_scrollController.position.pixels ==
             _scrollController.position.maxScrollExtent) {

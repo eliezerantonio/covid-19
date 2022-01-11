@@ -95,8 +95,8 @@ class _FormsState extends State<Forms> {
       ..email = email
       ..password = password;
 
-  final ok= await context.read<UserProvider>().login(user);
-  if (ok) {
+    final ok = await context.read<UserProvider>().login(user);
+    if (ok) {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (_) => HomeScreen()));
     } else {
@@ -105,6 +105,5 @@ class _FormsState extends State<Forms> {
         "Credenciais não conferem",
       );
     }
-
   }
 }
