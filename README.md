@@ -1,16 +1,20 @@
 # covid_19_cases
 
-A new Flutter project.
 
-## Getting Started
+## Flutter Challenge Digistarts
 
-This project is a starting point for a Flutter application.
+this app lists cases of covid-19 from several states in Brazil
 
-A few resources to get you started if this is your first Flutter project:
+### To-Do List
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- [X] Signin 
+- [X] Load all casses from API 
+- [X] Search cases based on state
+- [X] Search cases based on date
+- [X] Next API page
+- [X] Previuos API page
+- [X] Graphic
+- [X] Case detail
+- [X] Mobile
+- [X] Web
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
