@@ -30,18 +30,15 @@ dependencies:
   animate_do: ^2.0.0
   cupertino_icons: ^1.0.2
   dio: ^4.0.0
-  fluro: ^2.0.3
-  flutter:
-    sdk: flutter
-  flutter_svg: ^1.0.0
   graphic: ^0.7.0
   intl: ^0.17.0
-  lottie: ^1.2.1
   provider: ^6.0.0
-  shared_preferences: ^2.0.5
-  shimmer: ^2.0.0
   splash_screen_view: ^3.0.0
-  universal_html: ^2.0.8
+
+  flutter:
+    sdk: flutter
+ 
+ 
 
 dev_dependencies:
   flutter_lints: ^1.0.0

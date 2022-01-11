@@ -74,8 +74,8 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
         );
       },
       icon: Container(
-        height: 40,
-        width: 40,
+        height: 50,
+        width: 50,
         decoration: BoxDecoration(
             color: Colors.blue[900]!.withOpacity(0.7), shape: BoxShape.circle),
         child: const Icon(Icons.arrow_upward_outlined,
