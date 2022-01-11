@@ -1,6 +1,5 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:covid_19_cases/ui/screens/shared/widgets/covid_text.dart';
-import 'package:covid_19_cases/utils/my_colors.dart';
 import 'package:flutter/material.dart';
 
 import 'forms.dart';
