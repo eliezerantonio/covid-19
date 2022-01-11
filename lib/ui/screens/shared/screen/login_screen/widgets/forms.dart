@@ -20,8 +20,8 @@ class _FormsState extends State<Forms> {
   bool isLoading = false;
 
   //controller
-  final emailController = TextEditingController(text: "digistarts@gmail.com");
-  final passwordController = TextEditingController(text: "Digistarts");
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
